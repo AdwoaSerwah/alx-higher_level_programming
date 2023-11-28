@@ -1,4 +1,8 @@
 #!/usr/bin/python3
 class Rectangle:
-    """Prints a rectangle"""
+    """
+    This prints a rectangle.
+
+    It may be used as base class.
+    """
     pass
