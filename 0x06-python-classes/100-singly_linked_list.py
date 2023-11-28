@@ -1,4 +1,16 @@
 #!/usr/bin/python3
+"""
+This module defines a Node class and a SinglyLinkedList class.
+
+The Node class represents a node of a singly linked list.
+It has private instance attributes, data and next_node, and
+both have getter and setter methods
+
+The SinglyLinkedList class has a private instance attribute,
+head, and a public instance method sorted_insert that inserts
+a new Node into the correct sorted position in the list
+(increasing order)
+"""
 class Node:
     """
     Defines a node of a singly linked list.
