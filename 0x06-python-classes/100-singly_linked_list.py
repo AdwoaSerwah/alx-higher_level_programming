@@ -11,6 +11,8 @@ head, and a public instance method sorted_insert that inserts
 a new Node into the correct sorted position in the list
 (increasing order)
 """
+
+
 class Node:
     """
     Defines a node of a singly linked list.
