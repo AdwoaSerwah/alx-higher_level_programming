@@ -1,1 +1,1 @@
-6
+3 because the integers 0, 1, and 2 are used in the execution.
