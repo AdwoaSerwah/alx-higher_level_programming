@@ -38,6 +38,24 @@ It also works with floating-point values.
     >>> add_integer(100.3, -2)
     98
 
+    >>> add_integer(float('inf'), float('inf'))
+    89
+
+    >>> add_integer(1, -float('inf'))
+    89
+
+    >>> add_integer(float('inf'), 1)
+    89
+
+    >>> add_integer(float('nan'), 10)
+    99
+
+    >>> add_integer(5, float('nan'))
+    94
+
+    >>> add_integer(float('nan'), float('nan'))
+    178
+
 Non_Numbers
 ===========
 
