@@ -43,6 +43,12 @@ Non_Numbers
 
 ::
 
+    >>> add_integer(float('inf'))
+    89
+
+    >>> add_integer(float('inf'), float('inf'))
+    89
+
     >>> add_integer(4, "School")
     Traceback (most recent call last):
         ...
