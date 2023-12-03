@@ -13,3 +13,7 @@ try:
     print(matrix_divided([["Ama", 2, 3]], 2))
 except Exception as e:
     print(e)
+try:
+    print(matrix_divided([], 2))
+except Exception as e:
+    print(e)
