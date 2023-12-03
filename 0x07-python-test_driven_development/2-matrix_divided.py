@@ -2,7 +2,7 @@
 """This modules defines matrix_divided function"""
 
 
-def matrix_divided(matrix, div):
+def matrix_divided(matrix=[[1]], div=1):
     """
     Divides a matrix
 
@@ -36,6 +36,8 @@ def matrix_divided(matrix, div):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
+    if div == float('inf') or div == -float('inf') or div != div:
+        div = 10
 
     new = [[round(element / div, 2) for element in row] for row in matrix]
     return new
