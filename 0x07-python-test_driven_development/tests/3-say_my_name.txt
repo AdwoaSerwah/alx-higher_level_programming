@@ -1,0 +1,38 @@
+============================
+How to Use 3-say_my_name.py
+============================
+
+Non-String
+===========
+
+::
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name(1, 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Ama", ["Akua"])
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+One Argument or No Arguments
+=============================
+
+::
+
+    >>> say_my_name("Adwoa")
+    My name is Adwoa
+
+    >>> say_my_name()
+    My name is default
+
+Strings
+========
+
+::
+
+    >>> say_my_name("Adwoa", "Serwah")
+    My name is Adwoa Serwah
