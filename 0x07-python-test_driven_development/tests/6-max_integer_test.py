@@ -7,15 +7,16 @@ max_integer = __import__('6-max_integer').max_integer
 
 class TestMaxInteger(unittest.TestCase):
 
-    """Tests the function max_integer"""
+    """Tests the function max_integer
     def test_type(self):
-        """Check if data type is list"""
+        # Check if data type is list
         self.assertRaises(TypeError, max_integer, 1)
         self.assertRaises(TypeError, max_integer, ["w"])
         self.assertRaises(TypeError, max_integer, [1, "w"])
         self.assertRaises(TypeError, max_integer, [1, []])
         self.assertRaises(TypeError, max_integer, [[]])
         self.assertRaises(TypeError, max_integer, "w")
+    """
 
     def test_empty_list(self):
         """Test if list is empty"""
