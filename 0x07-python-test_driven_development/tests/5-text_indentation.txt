@@ -1,0 +1,50 @@
+Empty String or No Argument
+============================
+
+::
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("")
+
+    >>> text_indentation()
+
+Non-String
+===========
+
+::
+
+    >>> text_indentation(1233)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Strings
+========
+
+::
+
+    >>> text_indentation("Ama")
+    Ama
+
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+
+    >>> text_indentation("  Lorem ipsum    dolor\n sit amet, adipiscing elit?  ")
+    Lorem ipsum    dolor
+    sit amet, adipiscing elit?
+    <BLANKLINE>
+
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit:")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit:
+    <BLANKLINE>
+
+    >>> text_indentation("   m\n m am \n     d     of     . y?g:")
+    m
+    m am
+    d     of.
+    <BLANKLINE>
+    y?
+    <BLANKLINE>
+    g:
+    <BLANKLINE>
