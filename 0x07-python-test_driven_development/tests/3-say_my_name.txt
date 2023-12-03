@@ -24,10 +24,10 @@ One Argument or No Arguments
 ::
 
     >>> say_my_name("Adwoa")
-    My name is Adwoa
+    My name is Adwoa 
 
     >>> say_my_name()
-    My name is default
+    My name is default 
 
 Strings
 ========
