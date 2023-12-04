@@ -4,7 +4,7 @@
 import numpy as np
 
 
-def lazy_matrix_mul(m_a=[[1]], m_b=[[1]]):
+def lazy_matrix_mul(m_a=[[2]], m_b=[[1]]):
     """
     Computes the multiplication of two matrices
 

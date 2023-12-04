@@ -25,7 +25,7 @@ One Argument or No Arguments
 ::
 
     >>> lazy_matrix_mul()
-    array([[1]])
+    array([[2]])
 
     >>> lazy_matrix_mul([[1]], [[1]])
     array([[1]])
