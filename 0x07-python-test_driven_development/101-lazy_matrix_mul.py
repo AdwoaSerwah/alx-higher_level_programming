@@ -59,4 +59,5 @@ def lazy_matrix_mul(m_a=[[1]], m_b=[[1]]):
 
     new = new.tolist()
 
-    return new
+    result_str = np.array(new)
+    return result_str

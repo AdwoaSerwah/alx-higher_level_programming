@@ -25,20 +25,10 @@ One Argument or No Arguments
 ::
 
     >>> lazy_matrix_mul([[2]])
-    [[2]]
+    array([[2]])
 
     >>> lazy_matrix_mul()
-    [[1]]
-
-Not a List or List of Lists
-============================
-
-::
-
-    >>> lazy_matrix_mul(1, [[1, 2], [1, 2]])
-    Traceback (most recent call last):
-        ...
-    TypeError: m_a must be a list
+    array([[1]])
 
     >>> lazy_matrix_mul([[1, 2], [1, 2]], "you")
     Traceback (most recent call last):
@@ -56,7 +46,7 @@ Not a List or List of Lists
     TypeError: m_b must be a list of lists
 
 Non-Integers/Floats in Matrix Rows
-===================================
+============================
 
 ::
 
@@ -69,6 +59,7 @@ Non-Integers/Floats in Matrix Rows
     Traceback (most recent call last):
         ...
     TypeError: m_b should contain only integers or floats
+
 
 Different Row Sizes
 ====================
@@ -103,19 +94,22 @@ Integers/Floats
 ::
 
     >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
-    [[7, 10], [15, 22]]
+    array([[ 7, 10],
+           [15, 22]])
 
     >>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
-    [[13, 16]]
+    array([[13, 16]])
 
     >>> lazy_matrix_mul([[1, -2]], [[3, -4], [1, 4]])
-    [[1, -12]]
+    array([[  1, -12]])
 
     >>> lazy_matrix_mul([[1, -2.7]], [[3, -9.9], [5, 6.5]])
-    [[-10.5, -27.450000000000003]]
+    array([[-10.5 , -27.45]])
 
     >>> lazy_matrix_mul([[1, float('NaN')]], [[3, 4], [float('inf'), 6]])
-    [[103, 64]]
+    array([[103,  64]])
 
     >>> lazy_matrix_mul([[1, 2], [3, 4], [3, 4]], [[5, 6, 1], [7, 8, 2]])
-    [[19, 22, 5], [43, 50, 11], [43, 50, 11]]
+    array([[19, 22,  5],
+           [43, 50, 11],
+           [43, 50, 11]])
