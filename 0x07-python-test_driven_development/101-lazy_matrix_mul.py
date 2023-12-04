@@ -26,6 +26,6 @@ def lazy_matrix_mul(m_a=[[1]], m_b=[[1]]):
         raise
     except TypeError as te:
         if "Object arrays are not currently supported" in str(te):
-            raise ValueError("setting an array element with a sequence")
+            raise ValueError("setting an array element with a sequence.")
         else:
             raise
