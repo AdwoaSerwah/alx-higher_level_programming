@@ -51,9 +51,9 @@ Not a List or List of Lists
     >>> lazy_matrix_mul([[1, 2], [1, 2]], [[1, 2], 4])
     Traceback (most recent call last):
         ...
-    TypeError: Object arrays are not currently supported
+    ValueError: setting an array element with a sequence
 
-Non-Integers/Floats in Matrix Rows
+on-Integers/Floats in Matrix Rows
 ============================
 
 ::
@@ -76,12 +76,12 @@ Different Row Sizes
     >>> lazy_matrix_mul([[1, 2], [2, 3]], [[1, 2], [2]])
     Traceback (most recent call last):
         ...
-    TypeError: Object arrays are not currently supported
+    ValueError: setting an array element with a sequence
 
     >>> lazy_matrix_mul([[1, 2], [2]], [[1, 2], [2]])
     Traceback (most recent call last):
         ...
-    TypeError: Object arrays are not currently supported
+    ValueError: setting an array element with a sequence
 
 Multiplication Errors:
 
@@ -120,3 +120,13 @@ Integers/Floats
     array([[19, 22,  5],
            [43, 50, 11],
            [43, 50, 11]])
+
+    >>> lazy_matrix_mul([[5, 6, 10], [7, 8]], [[5, 6], [7, 8]])
+    Traceback (most recent call last):
+        ...
+    ValueError: setting an array element with a sequence
+
+    >>> lazy_matrix_mul([[5, 6], [7, 8]], [[5, 6, 1], [7, 8]])
+    Traceback (most recent call last):
+        ...
+    ValueError: setting an array element with a sequence
