@@ -1,0 +1,28 @@
+Not an attribute or method of list or MyList
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> mine = MyList()
+    >>> mine.we()
+    Traceback (most recent call last):
+        ...
+    AttributeError: 'MyList' object has no attribute 'we'
+
+    >>> mine = MyList()
+    >>> mine.append(5)
+    >>> mine.app = 9
+
+List of Integers
+
+::
+
+    >>> my_list = MyList()
+    >>> my_list.append(4)
+    >>> my_list.append(1)
+    >>> print(my_list)
+    [4, 1]
+    >>> my_list.print_sorted()
+    [1, 4]
+    >>> print(my_list)
+    [4, 1]
