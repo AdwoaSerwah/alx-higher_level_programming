@@ -52,8 +52,8 @@ def matrix_mul(m_a=[[1]], m_b=[[1]]):
     for i in range(len(m_a)):
         sum = 0
         tmp = []
-        for j in range(col_len_a):
-            for k in range(col_len_a):
+        for j in range(col_len_b):
+            for k in range(len(m_b)):
                 if m_a[i][k] != m_a[i][k] or m_a[i][k] == float('inf') or \
                         m_a[i][k] == float('-inf'):
                     m_a[i][k] = 10
