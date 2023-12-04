@@ -1,10 +1,42 @@
-Validate
-=========
+One or no Arguments
+====================
 
 ::
 
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int")
+    >>> bg.integer_validator(12)
+    >>> bg.integer_validator()
+
+Correct Arguments
+==================
+
+::
 
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
+
+Incorrect Arguments:
+
+::
+
+    >>> bg.integer_validator("my_int", "ama")
+    Traceback (most recent call last):
+        ...
+    TypeError: my_int must be an integer
+
+    >>> bg.integer_validator("my_int", 12.67)
+    Traceback (most recent call last):
+        ...
+    TypeError: my_int must be an integer
+
+    >>> bg.integer_validator("my_int", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: my_int must be greater than 0
+
+    >>> bg.integer_validator("my_int", -12)
+    Traceback (most recent call last):
+        ...
+    ValueError: my_int must be greater than 0
