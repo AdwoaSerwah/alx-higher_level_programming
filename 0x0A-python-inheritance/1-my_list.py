@@ -6,7 +6,7 @@
 class MyList(list):
     """
     Represents the class MyList
-    
+
     This is a subclass of the list object
     """
     def print_sorted(self):
