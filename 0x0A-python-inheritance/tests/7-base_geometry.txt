@@ -31,6 +31,11 @@ Correct Arguments
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
 
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
 Incorrect Arguments:
 
 ::
@@ -61,3 +66,8 @@ Incorrect Arguments:
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+    >>> bg.integer_validator("my_int", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: my_int must be an integer
