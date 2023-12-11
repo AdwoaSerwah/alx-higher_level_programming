@@ -23,6 +23,8 @@ total_file_size = 0
 status_codes = defaultdict(int)
 line_count = 0
 
+valid_status_codes = {'200', '301', '400', '401', '403', '404', '405', '500'}
+
 signal.signal(signal.SIGINT, signal_handler)
 
 try:
@@ -31,14 +33,17 @@ try:
         parts = line.split()
         if len(parts) >= 7:
             status_code = parts[-2]
-            file_size = int(parts[-1])
-            status_codes[status_code] += 1
-            total_file_size += file_size
+            file_size = parts[-1]
 
-            if line_count % 10 == 0:
-                print_stats()
+            if status_code in valid_status_codes and file_size.isdigit():
+                status_codes[status_code] += 1
+                total_file_size += int(file_size)
+
+                if line_count % 10 == 0:
+                    print_stats()
 
 except KeyboardInterrupt:
     pass
+
 print_stats()
 sys.exit(0)
