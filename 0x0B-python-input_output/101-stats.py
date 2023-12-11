@@ -37,10 +37,10 @@ try:
 
             if status_code in valid_status_codes and file_size.isdigit():
                 status_codes[status_code] += 1
-                total_file_size += int(file_size)
+            total_file_size += int(file_size)
 
-                if line_count % 10 == 0:
-                    print_stats()
+            if line_count % 10 == 0:
+                print_stats()
 
 except KeyboardInterrupt:
     pass
