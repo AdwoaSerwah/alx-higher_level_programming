@@ -5,6 +5,16 @@ from models.base import Base
 
 class Rectangle(Base):
     """Will write soon"""
+    def to_dictionary(self):
+        """Returns a dictionary"""
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
+
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
         self.width = width

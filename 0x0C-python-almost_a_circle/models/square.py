@@ -5,6 +5,10 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """This defines an instance of this class"""
+    def to_dictionary(self):
+        print(self.__dict__())
+        return self.__dict__
+
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
 
