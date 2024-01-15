@@ -16,6 +16,18 @@ class Base:
             str_j = cls.to_json_string([o.to_dictionary() for o in list_objs])
             f.write(str_j)
 
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            dummy = None
+
+        dummy.update(**dictionary)
+        return dummy
+
     @staticmethod
     def to_json_string(list_dictionaries):
         if not list_dictionaries:
