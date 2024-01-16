@@ -2,6 +2,9 @@
 """Unit tests for Rectangle class"""
 import unittest
 from models.rectangle import Rectangle
+from unittest.mock import patch
+import io
+import sys
 
 
 class TestRectangle(unittest.TestCase):
@@ -118,8 +121,11 @@ class TestRectangle(unittest.TestCase):
 
     def test_display_no_xy(self):
         """Test display 16)"""
-        r2 = Rectangle(1, 2)
-        self.assertEqual(str(r2.display()), "None")
+        r = Rectangle(3, 4)
+        result = "###\n###\n###\n###"
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            r.display()
+            self.assertEqual(mock_stdout.getvalue().strip(), result)
 
 
 if __name__ == "__main__":
