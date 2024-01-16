@@ -49,6 +49,30 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(b1.x, 3)
         self.assertEqual(b1.y, 4)
 
+    def test_rect_val_w(self):
+        with self.assertRaises(ValueError) as ve:
+            b4 = Rectangle(0, 2)
+
+        self.assertEqual(str(ve.exception), "width must be > 0")
+
+    def test_rect_val_h(self):
+        with self.assertRaises(ValueError) as ve:
+            b4 = Rectangle(1, 0)
+
+        self.assertEqual(str(ve.exception), "height must be > 0")
+
+    def test_rect_val_x(self):
+        with self.assertRaises(ValueError) as ve:
+            b4 = Rectangle(1, 2, -3)
+
+        self.assertEqual(str(ve.exception), "x must be >= 0")
+
+    def test_rect_val_y(self):
+        with self.assertRaises(ValueError) as ve:
+            b4 = Rectangle(1, 2, 3, -4)
+
+        self.assertEqual(str(ve.exception), "y must be >= 0")
+
 
 if __name__ == "__main__":
     unittest.main()
