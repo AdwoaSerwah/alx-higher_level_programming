@@ -116,6 +116,11 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
 
+    def test_display_no_xy(self):
+        """Test display 16)"""
+        r2 = Rectangle(1, 2)
+        self.assertEqual(str(r2.display()), "None")
+
 
 if __name__ == "__main__":
     unittest.main()
