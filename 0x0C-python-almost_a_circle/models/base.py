@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module represents Base class"""
 import json
+import csv
 
 
 class Base:
@@ -40,7 +41,6 @@ class Base:
         except FileNotFoundError:
             return []
 
-    @staticmethod
     def to_json_string(list_dictionaries):
         if not list_dictionaries:
             return "[]"

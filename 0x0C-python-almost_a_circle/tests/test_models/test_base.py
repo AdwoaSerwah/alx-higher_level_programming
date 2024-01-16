@@ -28,6 +28,11 @@ class TestBase(unittest.TestCase):
         b5 = Base()
         self.assertEqual(type(b5)._Base__nb_objects, 4)
 
+    def test_base_to_json_string(self):
+        """Test something"""
+        me = Base.to_json_string(None)
+        self.assertEqual(me, '[]')
+
 
 if __name__ == "__main__":
     unittest.main()
