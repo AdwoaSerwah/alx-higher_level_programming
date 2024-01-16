@@ -33,6 +33,11 @@ class TestBase(unittest.TestCase):
         me = Base.to_json_string(None)
         self.assertEqual(me, '[]')
 
+    def test_base_from_json_string(self):
+        """Test again"""
+        you = Base.from_json_string(None)
+        self.assertEqual(you, [])
+
 
 if __name__ == "__main__":
     unittest.main()
