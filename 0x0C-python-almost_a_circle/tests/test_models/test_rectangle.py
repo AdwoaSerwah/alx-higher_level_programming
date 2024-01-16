@@ -111,7 +111,7 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(str(ve.exception), "width must be > 0")
 
-    def test_rect_str(self):
+    def test_rect_str_rep(self):
         """Test str 15"""
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
