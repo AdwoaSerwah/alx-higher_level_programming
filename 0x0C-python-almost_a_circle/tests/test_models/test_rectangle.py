@@ -10,11 +10,29 @@ class TestRectangle(unittest.TestCase):
     def test_rect_creation(self):
         """Test Rectangle"""
         b1 = Rectangle(1, 2)
-        self.assertEqual(b1.id, 5)
+        self.assertEqual(b1.id, 6)
         self.assertEqual(b1.width, 1)
         self.assertEqual(b1.height, 2)
         self.assertEqual(b1.x, 0)
         self.assertEqual(b1.y, 0)
+
+    def test_rect_creation1(self):
+        """Test Rectangle"""
+        b1 = Rectangle(1, 2, 3)
+        self.assertEqual(b1.id, 6)
+        self.assertEqual(b1.width, 1)
+        self.assertEqual(b1.height, 2)
+        self.assertEqual(b1.x, 3)
+        self.assertEqual(b1.y, 0)
+
+    def test_rect_creation1(self):
+        """Test Rectangle"""
+        b1 = Rectangle(1, 2, 3, 4)
+        self.assertEqual(b1.id, 7)
+        self.assertEqual(b1.width, 1)
+        self.assertEqual(b1.height, 2)
+        self.assertEqual(b1.x, 3)
+        self.assertEqual(b1.y, 4)
 
     def test_rect_str(self):
         """Test Rect"""
@@ -72,6 +90,11 @@ class TestRectangle(unittest.TestCase):
             b4 = Rectangle(1, 2, 3, -4)
 
         self.assertEqual(str(ve.exception), "y must be >= 0")
+
+    def test_area(self):
+        b1 = Rectangle(1, 2)
+        b2 = b1.area()
+        self.assertEqual(b2, 2)
 
 
 if __name__ == "__main__":
