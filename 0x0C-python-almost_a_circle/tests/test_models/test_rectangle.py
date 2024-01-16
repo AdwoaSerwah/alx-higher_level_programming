@@ -16,6 +16,12 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(b1.x, 0)
         self.assertEqual(b1.y, 0)
 
+    def test_rect_str(self):
+        """Test Rect"""
+        with self.assertRaises(TypeError) as te:
+            b2 = Rectangle("1", 2)
+
+        self.assertEqual(str(te.exception), "width must be an integer")
 
 if __name__ == "__main__":
     unittest.main()
