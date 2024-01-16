@@ -127,24 +127,23 @@ class TestRectangle(unittest.TestCase):
             r.display()
             self.assertEqual(mock_stdout.getvalue().strip(), result)
 
+    """
     def test_display_no_y(self):
-        """Test display 17"""
+        Test display 17
         r = Rectangle(3, 4, 1, 0)
         result = "###\n ###\n ###\n ###"
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
             r.display()
             self.assertEqual(mock_stdout.getvalue().strip(), result)
 
-
-"""
+    """
     def test_display_xy(self):
-        Test display 18
+        """Test display 18"""
         r = Rectangle(3, 4, 1, 1)
         result = "###\n ###\n ###\n ###"
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
             r.display()
             self.assertEqual(mock_stdout.getvalue().strip(), result)
-"""
 
 
 if __name__ == "__main__":
