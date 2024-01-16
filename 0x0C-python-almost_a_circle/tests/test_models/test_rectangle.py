@@ -23,5 +23,24 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(str(te.exception), "width must be an integer")
 
+    def test_rect_height(self):
+        with self.assertRaises(TypeError) as te:
+            b3 = Rectangle(1, "2")
+
+        self.assertEqual(str(te.exception), "height must be an integer")
+
+    def test_rect_x(self):
+        with self.assertRaises(TypeError) as te:
+            b4 = Rectangle(1, 2, "3")
+
+        self.assertEqual(str(te.exception), "x must be an integer")
+
+    def test_rect_x(self):
+        with self.assertRaises(TypeError) as te:
+            b4 = Rectangle(1, 2, 3, "4")
+
+        self.assertEqual(str(te.exception), "y must be an integer")
+
+
 if __name__ == "__main__":
     unittest.main()
