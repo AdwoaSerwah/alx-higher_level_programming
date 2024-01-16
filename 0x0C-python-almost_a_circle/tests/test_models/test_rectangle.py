@@ -6,7 +6,6 @@ from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
     """Test cases for the Base class"""
-
     def test_rect_creation(self):
         """Test Rectangle 1"""
         b1 = Rectangle(1, 2)
@@ -92,13 +91,6 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(str(ve.exception), "x must be >= 0")
 
-    def test_rect_val_w2(self):
-        """Test Rect 15"""
-        with self.assertRaises(ValueError) as ve:
-            b4 = Rectangle(-1, 2)
-
-        self.assertEqual(str(ve.exception), "width must be > 0")
-
     def test_rect_val_y(self):
         """Test Rect 12"""
         with self.assertRaises(ValueError) as ve:
@@ -112,13 +104,17 @@ class TestRectangle(unittest.TestCase):
         b2 = b1.area()
         self.assertEqual(b2, 2)
 
+    def test_rect_val_w2(self):
+        """Test Rect 14"""
+        with self.assertRaises(ValueError) as ve:
+            b4 = Rectangle(-1, 2)
 
-"""
+        self.assertEqual(str(ve.exception), "width must be > 0")
+
     def test_rect_str(self):
-        Test str 14
+        """Test str 15"""
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
-"""
 
 
 if __name__ == "__main__":
