@@ -90,6 +90,57 @@ class TestSquare(unittest.TestCase):
         b1 = Square(1, 2, 3, 4)
         self.assertEqual(str(b1), "[Square] (4) 2/3 - 1")
 
+    def test_sq_to_dict(self):
+        """13"""
+        r2 = Square(10, 2, 1, 9)
+        to_dict = {'x': 2, 'y': 1, 'id': 9, 'size': 10}
+        self.assertEqual(r2.to_dictionary(), to_dict)
+
+    def test_sq_update_no_arg(self):
+        """14"""
+        b1 = Square(10, 10, 10, 10)
+        b1.update()
+        self.assertEqual(b1.id, 10)
+        self.assertEqual(b1.size, 10)
+        self.assertEqual(b1.x, 10)
+        self.assertEqual(b1.y, 10)
+
+    def test_sq_update_i(self):
+        """15"""
+        b1 = Square(10, 10, 10, 10,)
+        b1.update(89)
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.size, 10)
+        self.assertEqual(b1.x, 10)
+        self.assertEqual(b1.y, 10)
+
+    def test_sq_update_is(self):
+        """16"""
+        b1 = Square(10, 10, 10, 10)
+        b1.update(89, 1)
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.size, 1)
+        self.assertEqual(b1.x, 10)
+        self.assertEqual(b1.y, 10)
+
+    def test_sq_update_isx(self):
+        """17"""
+        b1 = Square(10, 10, 10, 10)
+        b1.update(89, 1, 2)
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.size, 1)
+        self.assertEqual(b1.x, 2)
+        self.assertEqual(b1.y, 10)
+
+    def test_sq_update_isxy(self):
+        """18"""
+        b1 = Square(10, 10, 10, 10)
+        b1.update(89, 1, 2, 3)
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.size, 1)
+        self.assertEqual(b1.x, 2)
+        self.assertEqual(b1.y, 3)
+
 
 if __name__ == "__main__":
     unittest.main()
