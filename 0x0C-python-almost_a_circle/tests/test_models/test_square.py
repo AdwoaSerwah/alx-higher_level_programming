@@ -141,6 +141,38 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(b1.x, 2)
         self.assertEqual(b1.y, 3)
 
+    def test_sq_create_id(self):
+        """19"""
+        b1 = Square.create(**{'id': 89})
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.size, 1)
+        self.assertEqual(b1.x, 0)
+        self.assertEqual(b1.y, 0)
+
+    def test_sq_create_is(self):
+        """20"""
+        b1 = Square.create(**{'id': 89, 'size': 2})
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.size, 2)
+        self.assertEqual(b1.x, 0)
+        self.assertEqual(b1.y, 0)
+
+    def test_sq_create_ish(self):
+        """21"""
+        b1 = Square.create(**{'id': 89, 'size': 2, 'x': 3})
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.size, 2)
+        self.assertEqual(b1.x, 3)
+        self.assertEqual(b1.y, 0)
+
+    def test_sq_create_isxy(self):
+        """22"""
+        b1 = Square.create(**{'id': 89, 'size': 2, 'x': 3, 'y': 4})
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.size, 2)
+        self.assertEqual(b1.x, 3)
+        self.assertEqual(b1.y, 4)
+
 
 if __name__ == "__main__":
     unittest.main()
