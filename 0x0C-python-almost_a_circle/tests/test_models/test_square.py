@@ -79,6 +79,17 @@ class TestSquare(unittest.TestCase):
             b1 = Square(1, 2, -3)
         self.assertEqual(str(ve.exception), "y must be >= 0")
 
+    def test_sq_size_zero(self):
+        """11"""
+        with self.assertRaises(ValueError) as ve:
+            b1 = Square(0)
+        self.assertEqual(str(ve.exception), "width must be > 0")
+
+    def test_sq_str(self):
+        """12"""
+        b1 = Square(1, 2, 3, 4)
+        self.assertEqual(str(b1), "[Square] (4) 2/3 - 1")
+
 
 if __name__ == "__main__":
     unittest.main()
