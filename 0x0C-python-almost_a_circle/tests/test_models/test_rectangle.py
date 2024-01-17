@@ -305,8 +305,13 @@ class TestRectangle(unittest.TestCase):
             Rectangle.save_to_file([r])
         mock_file.assert_called_once_with(
                 'Rectangle.json', 'w', encoding="utf-8")
-        mock_file().write.assert_called_once_with(
-                '[{"id": 22, "width": 1, "height": 2, "x": 0, "y": 0}]')
+
+        ec = '{"id": 22, "width": 1, "height": 2, "x": 0, "y": 0}'
+        mock_file().write.assert_called_once()
+        actual_args, _ = mock_file().write.call_args
+        actual_content = actual_args[0]
+        self.assertEqual(
+                [json.loads(ec)], json.loads(actual_content))
 
     def test_load_from_file_arg(self):
         """Test load_from_file_json with None 36"""
