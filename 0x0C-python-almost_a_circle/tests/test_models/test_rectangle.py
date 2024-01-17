@@ -3,8 +3,10 @@
 import unittest
 from models.rectangle import Rectangle
 from unittest.mock import patch
+from unittest.mock import mock_open
 from models.base import Base
 import io
+import os
 import sys
 
 
@@ -255,6 +257,38 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(b1.height, 3)
         self.assertEqual(b1.x, 4)
         self.assertEqual(b1.y, 5)
+
+    def setUp(self):
+        """Set up for testing"""
+        # Backup existing file
+        self.backup_filename = "Rectangle_backup.json"
+        if os.path.exists("Rectangle.json"):
+            os.rename("Rectangle.json", self.backup_filename)
+
+    def tearDown(self):
+        """Clean up after testing"""
+        # Restore the backup file
+        if os.path.exists(self.backup_filename):
+            os.rename(self.backup_filename, "Rectangle.json")
+
+    def test_save_to_file_none(self):
+        """Test save_to_file_json with None 31"""
+        with patch('builtins.open', new_callable=mock_open) as mock_file:
+            Rectangle.save_to_file(None)
+
+        # Check if open was called with the correct arguments
+        mock_file.assert_called_once_with(
+                'Rectangle.json', 'w', encoding="utf-8")
+
+        # Check if write was called with the correct argument
+        mock_file().write.assert_called_once_with('[]')
+
+    def test_load_from_file_none(self):
+        """Test load_from_file_json with None 32"""
+        result = Rectangle.load_from_file()
+
+        # Check if an empty list is returned
+        self.assertEqual(result, [])
 
 
 if __name__ == "__main__":
