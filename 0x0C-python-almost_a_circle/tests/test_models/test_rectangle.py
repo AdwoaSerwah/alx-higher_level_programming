@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Unit tests for Rectangle class"""
 import unittest
+import json
 from models.rectangle import Rectangle
 from unittest.mock import patch
 from unittest.mock import mock_open
@@ -294,6 +295,21 @@ class TestRectangle(unittest.TestCase):
 
     def test_load_from_file_empty(self):
         """Test load_from_file_json with None 34"""
+        result = Rectangle.load_from_file()
+        self.assertEqual(result, [])
+
+    def test_save_to_file_arg(self):
+        """Test save_to_file_json with None 35"""
+        r = Rectangle(1, 2)
+        with patch('builtins.open', new_callable=mock_open) as mock_file:
+            Rectangle.save_to_file([r])
+        mock_file.assert_called_once_with(
+                'Rectangle.json', 'w', encoding="utf-8")
+        mock_file().write.assert_called_once_with(
+                '[{"id": 22, "width": 1, "height": 2, "x": 0, "y": 0}]')
+
+    def test_load_from_file_arg(self):
+        """Test load_from_file_json with None 36"""
         result = Rectangle.load_from_file()
         self.assertEqual(result, [])
 
