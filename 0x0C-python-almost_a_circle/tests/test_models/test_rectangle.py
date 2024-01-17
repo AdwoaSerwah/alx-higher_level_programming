@@ -128,7 +128,7 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(mock_stdout.getvalue(), result)
 
     def test_display_no_y(self):
-        # Test display 17
+        """Test display 17"""
         r = Rectangle(4, 2, 1)
         result = " ####\n ####\n"
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
@@ -142,6 +142,12 @@ class TestRectangle(unittest.TestCase):
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
             r.display()
             self.assertEqual(mock_stdout.getvalue(), result)
+
+    def test_rect_to_dict(self):
+        """19"""
+        r2 = Rectangle(10, 2, 1, 9, 15)
+        to_dict = {'x': 1, 'y': 9, 'id': 15, 'height': 2, 'width': 10}
+        self.assertEqual(r2.to_dictionary(), to_dict)
 
 
 if __name__ == "__main__":
