@@ -173,6 +173,65 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(b1.x, 3)
         self.assertEqual(b1.y, 4)
 
+    def setUp(self):
+        """Set up for testing"""
+        # Backup existing file
+        self.backup_filename = "Square_backup.json"
+        if os.path.exists("Square.json"):
+            os.rename("Square.json", self.backup_filename)
+
+    def tearDown(self):
+        """Clean up after testing"""
+        # Restore the backup file
+        if os.path.exists(self.backup_filename):
+            os.rename(self.backup_filename, "Square.json")
+
+    def test_save_to_file_none(self):
+        """23"""
+        with patch('builtins.open', new_callable=mock_open) as mock_file:
+            Square.save_to_file(None)
+        mock_file.assert_called_once_with(
+                'Square.json', 'w', encoding="utf-8")
+        mock_file().write.assert_called_once_with('[]')
+
+    def test_load_from_file_none(self):
+        """24"""
+        result = Square.load_from_file()
+        self.assertEqual(result, [])
+
+    def test_save_to_file_empty(self):
+        """25"""
+        with patch('builtins.open', new_callable=mock_open) as mock_file:
+            Square.save_to_file([])
+        mock_file.assert_called_once_with(
+                'Square.json', 'w', encoding="utf-8")
+        mock_file().write.assert_called_once_with('[]')
+
+    def test_load_from_file_empty(self):
+        """26"""
+        result = Square.load_from_file()
+        self.assertEqual(result, [])
+
+    def test_save_to_file_arg(self):
+        """27"""
+        r = Square(2)
+        with patch('builtins.open', new_callable=mock_open) as mock_file:
+            Square.save_to_file([r])
+        mock_file.assert_called_once_with(
+                'Square.json', 'w', encoding="utf-8")
+
+        ec = '{"id": 27, "size": 2, "x": 0, "y": 0}'
+        mock_file().write.assert_called_once()
+        actual_args, _ = mock_file().write.call_args
+        actual_content = actual_args[0]
+        self.assertEqual(
+                [json.loads(ec)], json.loads(actual_content))
+
+    def test_load_from_file_arg(self):
+        """28"""
+        result = Square.load_from_file()
+        self.assertEqual(result, [])
+
 
 if __name__ == "__main__":
     unittest.main()
