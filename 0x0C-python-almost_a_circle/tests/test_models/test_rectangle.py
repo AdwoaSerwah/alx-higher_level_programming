@@ -275,19 +275,26 @@ class TestRectangle(unittest.TestCase):
         """Test save_to_file_json with None 31"""
         with patch('builtins.open', new_callable=mock_open) as mock_file:
             Rectangle.save_to_file(None)
-
-        # Check if open was called with the correct arguments
         mock_file.assert_called_once_with(
                 'Rectangle.json', 'w', encoding="utf-8")
-
-        # Check if write was called with the correct argument
         mock_file().write.assert_called_once_with('[]')
 
     def test_load_from_file_none(self):
         """Test load_from_file_json with None 32"""
         result = Rectangle.load_from_file()
+        self.assertEqual(result, [])
 
-        # Check if an empty list is returned
+    def test_save_to_file_empty(self):
+        """Test save_to_file_json with None 33"""
+        with patch('builtins.open', new_callable=mock_open) as mock_file:
+            Rectangle.save_to_file([])
+        mock_file.assert_called_once_with(
+                'Rectangle.json', 'w', encoding="utf-8")
+        mock_file().write.assert_called_once_with('[]')
+
+    def test_load_from_file_empty(self):
+        """Test load_from_file_json with None 34"""
+        result = Rectangle.load_from_file()
         self.assertEqual(result, [])
 
 
