@@ -149,6 +149,66 @@ class TestRectangle(unittest.TestCase):
         to_dict = {'x': 1, 'y': 9, 'id': 15, 'height': 2, 'width': 10}
         self.assertEqual(r2.to_dictionary(), to_dict)
 
+    def test_rect_update_no_arg(self):
+        """20"""
+        b1 = Rectangle(10, 10, 10, 10, 10)
+        b1.update()
+        self.assertEqual(b1.id, 10)
+        self.assertEqual(b1.width, 10)
+        self.assertEqual(b1.height, 10)
+        self.assertEqual(b1.x, 10)
+        self.assertEqual(b1.y, 10)
+
+    def test_rect_update_w(self):
+        """21"""
+        b1 = Rectangle(10, 10, 10, 10, 10)
+        b1.update(89)
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.width, 10)
+        self.assertEqual(b1.height, 10)
+        self.assertEqual(b1.x, 10)
+        self.assertEqual(b1.y, 10)
+
+    def test_rect_update_wh(self):
+        """22"""
+        b1 = Rectangle(10, 10, 10, 10, 10)
+        b1.update(89, 1)
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.width, 1)
+        self.assertEqual(b1.height, 10)
+        self.assertEqual(b1.x, 10)
+        self.assertEqual(b1.y, 10)
+
+    def test_rect_update_whx(self):
+        """23"""
+        b1 = Rectangle(10, 10, 10, 10, 10)
+        b1.update(89, 1, 2)
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.width, 1)
+        self.assertEqual(b1.height, 2)
+        self.assertEqual(b1.x, 10)
+        self.assertEqual(b1.y, 10)
+
+    def test_rect_update_whxy(self):
+        """24"""
+        b1 = Rectangle(10, 10, 10, 10, 10)
+        b1.update(89, 1, 2, 3)
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.width, 1)
+        self.assertEqual(b1.height, 2)
+        self.assertEqual(b1.x, 3)
+        self.assertEqual(b1.y, 10)
+
+    def test_rect_update_whxyi(self):
+        """25"""
+        b1 = Rectangle(10, 10, 10, 10, 10)
+        b1.update(89, 1, 2, 3, 4)
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.width, 1)
+        self.assertEqual(b1.height, 2)
+        self.assertEqual(b1.x, 3)
+        self.assertEqual(b1.y, 4)
+
 
 if __name__ == "__main__":
     unittest.main()
