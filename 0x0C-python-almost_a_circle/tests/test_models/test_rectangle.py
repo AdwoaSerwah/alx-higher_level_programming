@@ -3,6 +3,7 @@
 import unittest
 from models.rectangle import Rectangle
 from unittest.mock import patch
+from models.base import Base
 import io
 import sys
 
@@ -208,6 +209,52 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(b1.height, 2)
         self.assertEqual(b1.x, 3)
         self.assertEqual(b1.y, 4)
+
+    def test_rect_create_id(self):
+        """26"""
+        b1 = Rectangle.create(**{'id': 89})
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.width, 1)
+        self.assertEqual(b1.height, 1)
+        self.assertEqual(b1.x, 0)
+        self.assertEqual(b1.y, 0)
+
+    def test_rect_create_iw(self):
+        """27"""
+        b1 = Rectangle.create(**{'id': 89, 'width': 2})
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.width, 2)
+        self.assertEqual(b1.height, 1)
+        self.assertEqual(b1.x, 0)
+        self.assertEqual(b1.y, 0)
+
+    def test_rect_create_iwh(self):
+        """28"""
+        b1 = Rectangle.create(**{'id': 89, 'width': 2, 'height': 3})
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.width, 2)
+        self.assertEqual(b1.height, 3)
+        self.assertEqual(b1.x, 0)
+        self.assertEqual(b1.y, 0)
+
+    def test_rect_create_iwhx(self):
+        """29"""
+        b1 = Rectangle.create(**{'id': 89, 'width': 2, 'height': 3, 'x': 4})
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.width, 2)
+        self.assertEqual(b1.height, 3)
+        self.assertEqual(b1.x, 4)
+        self.assertEqual(b1.y, 0)
+
+    def test_rect_create_iwhxy(self):
+        """30"""
+        b1 = Rectangle.create(**{
+            'id': 89, 'width': 2, 'height': 3, 'x': 4, 'y': 5})
+        self.assertEqual(b1.id, 89)
+        self.assertEqual(b1.width, 2)
+        self.assertEqual(b1.height, 3)
+        self.assertEqual(b1.x, 4)
+        self.assertEqual(b1.y, 5)
 
 
 if __name__ == "__main__":
