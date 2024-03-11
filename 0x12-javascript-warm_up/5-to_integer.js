@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const { argv } = require('node:process');
-const toStr = parseInt(argv[2], 10);
+const toStr = Number(argv[2]);
 
 if (isNaN(toStr)) console.log('Not a number');
 else console.log(toStr);
