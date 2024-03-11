@@ -9,7 +9,7 @@ YOUR CODE HERE
 */
 function incr () {
   this.value++;
-  this.incr = incr
+  this.incr = incr;
 }
 myObject.incr = incr;
 myObject.incr();
