@@ -9,6 +9,6 @@ else {
     const toNum = Math.floor(Number(argv[i]));
     myArray.push(toNum);
   }
-  myArray.sort().reverse();
+  myArray.sort((a, b) => b - a);
   console.log(myArray[1]);
 }
