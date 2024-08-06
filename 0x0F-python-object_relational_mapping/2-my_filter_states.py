@@ -21,7 +21,12 @@ if __name__ == "__main__":
             )
 
     cursor = conn.cursor()
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(st)
+    query = (
+            "SELECT * FROM states "
+            "WHERE name = '{}' "
+            "COLLATE utf8mb4_bin "
+            "ORDER BY id ASC".format(st)
+            )
     cursor.execute(query)
     results = cursor.fetchall()
 
