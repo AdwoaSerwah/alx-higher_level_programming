@@ -18,6 +18,9 @@ if __name__ == "__main__":
         pool_pre_ping=True
     )
 
+    # Create all tables in the engine
+    Base.metadata.create_all(engine)
+
     # Create a session
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -28,8 +31,9 @@ if __name__ == "__main__":
     # Print results
     for state in states:
         print('{}: {}'.format(state.id, state.name))
-        # for city in state.cities:
-        # print('    {}: {}'.format(city.id, city.name))
+
+        for city in state.cities:
+            print('    {}: {}'.format(city.id, city.name))
 
     # Close the session
     session.close()
