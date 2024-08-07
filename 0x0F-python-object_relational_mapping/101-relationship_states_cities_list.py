@@ -24,13 +24,13 @@ if __name__ == "__main__":
     # Create a session
     session = Session()
 
-    states = session.query(State).order_by(State.id).all()
+    states_1 = session.query(State).order_by(State.id).all()
 
     # Display the results
-    for state in states:
+    for state in states_1:
         print("{}: {}".format(state.id, state.name))
-        for city in state.cities:
-            print("\t{}: {}".format(city.id, city.name))
+        for city_1 in state.cities:
+            print("\t{}: {}".format(city_1.id, city_1.name))
 
     # Close the session
     session.close()
