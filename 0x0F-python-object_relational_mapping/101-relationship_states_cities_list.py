@@ -3,14 +3,14 @@
 Lists all State objects and corresponding City objects
 from the database hbtn_0e_101_usa.
 """
-
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import Base, State
+from relationship_state import State
 from relationship_city import City
 
 if __name__ == "__main__":
+    # Create engine and bind it to the database
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
             sys.argv[1], sys.argv[2], sys.argv[3]
@@ -18,19 +18,20 @@ if __name__ == "__main__":
         pool_pre_ping=True
     )
 
-    # Create a session
+    # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
+
+    # Create a session
     session = Session()
 
-    # Query to get all states and their cities
+    # Query all State objects
     states = session.query(State).order_by(State.id).all()
 
-    # Print results
+    # Display the results
     for state in states:
-        print('{}: {}'.format(state.id, state.name))
-
+        print("{}: {}".format(state.id, state.name))
         for city in sorted(state.cities, key=lambda c: c.id):
-            print('    {}: {}'.format(city.id, city.name))
+            print("\t{}: {}".format(city.id, city.name))
 
     # Close the session
     session.close()
