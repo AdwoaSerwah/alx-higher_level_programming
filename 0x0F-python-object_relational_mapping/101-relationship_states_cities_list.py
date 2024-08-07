@@ -28,8 +28,8 @@ if __name__ == "__main__":
     # Print results
     for state in states:
         print('{}: {}'.format(state.id, state.name))
-        for city in state.cities:
-            print('    {}: {}'.format(city.id, city.name))
+        # for city in state.cities:
+        # print('    {}: {}'.format(city.id, city.name))
 
     # Close the session
     session.close()
