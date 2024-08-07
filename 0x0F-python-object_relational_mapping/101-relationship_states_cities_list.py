@@ -23,10 +23,10 @@ if __name__ == "__main__":
     session = Session()
 
     # Query to get all states and their cities
-    results = session.query(State).order_by(State.id).all()
+    states = session.query(State).order_by(State.id).all()
 
     # Print results
-    for state in results:
+    for state in states:
         print('{}: {}'.format(state.id, state.name))
         for city in state.cities:
             print('    {}: {}'.format(city.id, city.name))
