@@ -23,32 +23,18 @@ if __name__ == "__main__":
 
     # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
+
     # Create a session
     session = Session()
-    # Query all City objects
-    cities = session.query(City).order_by(City.id).all()
 
-    # Create a dictionary to hold State and its Cities
-    states_dict = {}
+    # Query all State objects and their corresponding City objects
+    states = session.query(State).order_by(State.id).all()
 
-    # Populate the dictionary with states and their cities
-    for city in cities:
-        state_id = city.state.id
-        if state_id not in states_dict:
-            states_dict[state_id] = {
-                "state_name": city.state.name,
-                "cities": []
-            }
-        states_dict[state_id]["cities"].append((city.id, city.name))
-
-    # Sort the dictionary by state id
-    sorted_states = sorted(states_dict.items())
-
-    # Print results
-    for state_id, state_info in sorted_states:
-        print("{}: {}".format(state_id, state_info["state_name"]))
-        for city_id, city_name in sorted(state_info["cities"]):
-            print("\t{}: {}".format(city_id, city_name))
+    # Display the results
+    for state in states:
+        print(f"{state.id}: {state.name}")
+        for city in sorted(state.cities, key=lambda city: city.id):
+            print(f"\t{city.id}: {city.name}")
 
     # Close the session
     session.close()
