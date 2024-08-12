@@ -32,9 +32,9 @@ if __name__ == "__main__":
 
     # Display the results
     for state in states:
-        print(f"{state.id}: {state.name}")
-        for city in sorted(state.cities, key=lambda city: city.id):
-            print(f"\t{city.id}: {city.name}")
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("{}: {}".format(city.id, city.name))
 
     # Close the session
     session.close()
