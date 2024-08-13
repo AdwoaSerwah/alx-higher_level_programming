@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# This script fetches https://alx-intranet.hbtn.io/status
+"""
+This script fetches https://alx-intranet.hbtn.io/status
+"""
 import urllib.request
 
 if __name__ == "__main__":
