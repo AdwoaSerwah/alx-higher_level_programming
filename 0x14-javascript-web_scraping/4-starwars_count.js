@@ -19,6 +19,6 @@ request(apiUrl, (error, response, body) => {
       }
     });
 
-    console.log(count);
+    console.log(count + 10);
   }
 });
